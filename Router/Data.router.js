@@ -47,19 +47,6 @@ Data.post('/',Adminauth,async(req,res)=>{
    
 })
 
-/// to get the data from the database...
-
-Data.get('/',Adminauth,async(req,res)=>{
-    try{
-        const data =await DataModel.find();
-        res.send(data);
-    }catch(err){
-        console.log('err from Data router get router');
-        console.log(err);
-        res.send({"message":"something went wrong"});
-    }
-})
-
 //to update data in database...
 
 Data.patch('/:noteId',Adminauth,async(req,res)=>{

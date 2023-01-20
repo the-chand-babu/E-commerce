@@ -1,19 +1,20 @@
 const express = require('express');
 
-
+const {home}=require('./Router/homeapi')
 const {connetion}= require('./db');
 const {User}=require('.//Router/user.Router');
 const {Admin}=require('./Router/Admin.Router')
 const {Data}=require('./Router/Data.router')
 const app= express();
 app.use(express.json());
+app.use('/home',home);
 app.use('/user',User);
 app.use('/admin',Admin);
-
 app.use('/admin/upload',Data);
 app.use('/admin/data',Data);
 app.use('/admin/update',Data);
 app.use('/admin/delete',Data);
+
 
 
 

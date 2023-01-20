@@ -1,0 +1,82 @@
+fisrt - in the dotenv file paste a mogodb data base link;
+server port is listhning 3240;
+url = localhost:3240
+
+for searching 
+http://localhost:3240/home/search?q=b
+
+endpoind
+
+for base url /home
+for admin signup = /admin/signup
+put the name , email passwoed in the body;
+json format
+
+for admin login 
+admin/login put email and passwoed in the body
+in json format
+it will return you the token save that token 
+
+admin can creat add product and update and delete
+
+pass token in the headers
+ex-
+token pas for every req expect base rout
+
+authorization : berer<space><token>
+
+if you want to upload some data to the server
+
+endpoint 
+upload = admin/upload
+body hold title,author,Price,Rating ,image
+keyword should be same..
+
+update 
+admin/update
+in the parameter send - ele id what you want to update
+in the body send data whatever you want upload 
+
+
+delete
+admin/delete
+
+send ele id - in the params
+
+for user router
+user can visit base rout without login
+
+user can add to cart product 
+delete to cart product
+user can search item
+user get cart item
+
+for signup user
+endpoint 
+/user/signup
+
+send name,email,password in body format json
+
+
+login
+/user/login
+
+send email,password in body form of json
+it will return you token
+
+/user/addtocart
+
+send token in headers
+authorization : bearer <space><token>
+send ele id in the params 
+
+
+for showing cart item
+/user/cartItem
+send token
+
+
+for delete
+
+user/delete
+send id in the params

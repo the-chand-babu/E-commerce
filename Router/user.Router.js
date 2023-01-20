@@ -56,18 +56,7 @@ User.post('/login',async(req,res)=>{
 })
 
 
-User.get('/data',async(req,res)=>{
-    try{
-        const data = await DataModel.find();
-        if(user.length <1){
-            return reset.send({"message":"no data availble"});
-        }
-        return res.send(data);
-    }catch(err){
-        console.log("err from user routes get data request");
-    }
-    
-})
+
 
 
 User.post('/addtocart/:_id',UserAuth,async(req,res)=>{
@@ -87,9 +76,14 @@ User.post('/addtocart/:_id',UserAuth,async(req,res)=>{
 })
 
 User.get('/cartItem',UserAuth,async(req,res)=>{
-    const {userId} = req.body;
-    const data= await CartModel.find({userId});
-    res.send("done");
+    try{
+        const {userId} = req.body;
+        const data= await CartModel.find({userId});
+        res.send({"message":data});
+    }catch(err){
+        console.log("err form user router cart ")
+    }
+    
     
 })
 
