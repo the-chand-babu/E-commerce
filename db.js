@@ -1,11 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
+require("dotenv").config();
+const connection = mongoose.connect(
+  "mongodb+srv://chandnwj:chandbabu@cluster0.jsk2z6k.mongodb.net/E-commerce?retryWrites=true&w=majority"
+);
 
-require('dotenv').config();
-const connection= mongoose.connect(process.env.mongoUrl);
-
-
-
-
-
-module.exports={connection};
+module.exports = { connection };

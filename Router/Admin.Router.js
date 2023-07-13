@@ -10,12 +10,13 @@ Admin.post('/signup',async(req,res)=>{
     try{
         const {email,password,name} = req.body;
         const admin =await  AdminModel.findOne({email});
-        
+        console.log(req.body)
         if(admin){
             return res.send({"message":"Allready have an Account please login"})
         }
         bcrypt.hash(password, 5, async function(err, hash) {
             // Store hash in your password DB.
+          
         const admindata = new AdminModel({name,email,password:hash});
         await admindata.save();
         return res.send({"message":"signup succesfully"})
@@ -45,7 +46,7 @@ Admin.post('/login',async(req,res)=>{
         if(!result) return res.send({"message":"wrong Password"})
 
         const token = jwt.sign({"userID" :admin._id},'hussh');
-        console.log(token)
+        
         return res.send({"message":"login successfully", token})
         
     });

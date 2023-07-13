@@ -6,7 +6,7 @@ const CartSchema =  mongoose.Schema({
     Rating:{type:String,required:true},
     Price:{type:String,required:true},
     author:{type:String,required:true},
-    image:{type:String,required:true},
+    image:{type:String},
     userId:{type:String,required:true}
 });
 
